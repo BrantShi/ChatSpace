@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test002.mapper.UserMapper">
+    <insert id="addUser" parameterType="com.example.test002.model.User">
+    INSERT INTO users(username,password) VALUES (#{username},#{password})
+</insert>
+
+    <delete id="deleteUserByUsername" parameterType="com.example.test002.model.User">
+    DELETE FROM users where username =#{username}
+</delete>
+
+    <update id="updateUser" parameterType="com.example.test002.model.User">
+    UPDATE users set password = #{password} where username = #{username}
+</update>
+
+    <select id="getUserByUsername" parameterType="String" resultType="com.example.test002.model.User">
+    SELECT * FROM users where username = #{username}
+</select>
+
+    <!--    <select id="getUserByUsername" parameterType="String" resultType="com.example.server_demo.model.User">-->
+    <!--    SELECT * FROM users where username = #{username}-->
+    <!--</select>-->
+
+    <!--    <select id="getAllUsers" resultType="com.example.server_demo.model.User">-->
+    <!--    SELECT * FROM users-->
+    <!--</select>-->
+</mapper>
